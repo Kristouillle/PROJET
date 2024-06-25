@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/massageHD.jpg");
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  width: 300px;
+  margin: 0;
+  padding: 10px;
+  flex: 1;
+}
+
+.header h1 {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.heroText{
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 700;
+  padding-top: 12%;
+  padding-left: 5%;
+  text-align: left;
+  font-size: 80px;
+  color: #55B8E6;
+  line-height: 1.2;
+}
+
+
+.inline-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.inline-form input {
+  flex: 1;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 50px;
+  border: none;
+
+}
