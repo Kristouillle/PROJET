@@ -3,25 +3,82 @@
   <head>
     <title>Projet Synthese</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/scripts.js"></script>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <img src="/images/logo.svg" alt="logo">
-        <h1>HEADER1</h1>
-        <h1>HEADER2</h1>
-        <h1>HEADER3</h1>
-        <h1>HEADER4</h1>
-        <h1>HEADER5</h1>
+  <header>
+    <div class="header">
+      <a href="#"><img src="/images/logo.svg" alt="logo"></a>
+      <h1><a href="#heroLanding" class="tab-link" data-target="heroLanding">Accueil</a></h1>
+      <h1><a href="#sec2" class="tab-link" data-target="sec2">Services</a></h1>
+      <h1><a href="#sec3" class="tab-link" data-target="sec3">À propos</a></h1>
+      <h1><a href="#sec4" class="tab-link" data-target="sec4">Contact</a></h1>
+      <div class="dropdown">
+        <h1><a class="dropdown-btn">Connexion</a></h1>
+        <div class="dropdown-content">
+          <form id="login-form">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+          </form>
+        </div>
       </div>
-    </header>
-    <div class="section">
+    </div>
+  </header>
+
+  <div class="section" id="heroLanding">
       <h1 class="heroText">Votre<br>relaxation<br>commence ici</h1>
       <form class="inline-form">
-        <input type="text" name="service" placeholder="Input 1">
+        <select name="services" id="services">     <option value="1">service 1</option>
+          <option value="2">service 2</option>
+          <option value="3">service 3</option>
+          <option value="4">service 4</option>
+        </select>
         <input type="date" name="date" placeholder="Today!">
-        <input type="text" name="heure" placeholder="Input 3">
+        <input type="text" name="heure" placeholder="Choisir l'heure">
+        <input type="button" name="reserver" placeholder="Réserver" value="Réserver" class="cta">
       </form>
     </div>
+
+    <div class="content section hidden" id="sec2">
+      <div class="card-container">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Card Image 1">
+          <div class="card-content">
+            <h3 class="card-title">Card Title 1</h3>
+            <p class="card-text">This is a description of the first card.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Card Image 2">
+          <div class="card-content">
+            <h3 class="card-title">Card Title 2</h3>
+            <p class="card-text">This is a description of the second card.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Card Image 3">
+          <div class="card-content">
+            <h3 class="card-title">Card Title 3</h3>
+            <p class="card-text">This is a description of the third card.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content section hidden" id="sec3">
+      <h2>Contenu de la section 3</h2>
+    </div>
+
+    <div class="content section hidden" id="sec4">
+      <h2>Contenu de la section 4</h2>
+    </div>
+
+    <div class="content section hidden" id="sec5">
+      <h2>Contenu de la section 5</h2>
+    </div>
+
+    <div class="dot"></div>
+    <script src="/javascripts/scripts.js"></script>
   </body>
 </html>

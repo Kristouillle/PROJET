@@ -1,61 +1,279 @@
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("../images/massageHD.jpg");
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-a {
-  color: #00B7FF;
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 10;
 }
 
 .header img {
-  width: 300px;
+  width: 150px;
   margin: 0;
-  padding: 10px;
-  flex: 1;
 }
 
 .header h1 {
   font-family: "Inknut Antiqua", serif;
   font-weight: 300;
   margin: 0;
-  padding: 10px;
-  flex: 1;
   text-align: center;
+  flex: 1;
 }
 
-.heroText{
+.header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+}
+
+#heroLanding{
+  height: 100vh;
+  background-image: url("../images/massageHD.jpg");
+}
+
+.heroText {
   font-family: "Inknut Antiqua", serif;
   font-weight: 700;
-  padding-top: 12%;
+  padding-top: 15%;
   padding-left: 5%;
   text-align: left;
-  font-size: 80px;
+  font-size: 85px;
   color: #55B8E6;
   line-height: 1.2;
 }
 
-
 .inline-form {
+  margin: auto;
   display: flex;
+  width: 75%;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  padding-top: 8vh;
 }
 
-.inline-form input {
+.inline-form input,
+.inline-form select {
   flex: 1;
   padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin: 0;
   box-sizing: border-box;
   border-radius: 50px;
   border: none;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 5px 2px;
+}
 
+.inline-form input:focus,
+.inline-form select:focus {
+  outline: none;
+}
+
+.cta {
+  background-color: #00B7FF;
+  color: white;
+  font-weight: bolder;
+}
+
+#sec2, #sec3, #sec4 {
+  background-color: white;
+  height: 100vh;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+
+
+/*
+  /////////////////////////////////////////
+        CSS POUR LA SECTION 2
+  /////////////////////////////////////////
+ */
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.01);
+  overflow: visible;
+  position: relative;
+  padding: 16px 24px;
+}
+.card::after {
+  position: absolute;
+  content: "";
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  z-index: -1;
+  transform: scale(0.8) translateZ(0);
+  filter: blur(25px);
+  background: linear-gradient(
+          to left,
+          #55B8E6,
+          #328BC1,
+          #0A6CA4,
+          #0A6CA4,
+          #328BC1,
+          #55B8E6
+  );
+  background-size: 200% 200%;
+  animation: animateGlow 1.25s linear infinite;
+}
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-content {
+  padding: 15px;
+}
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.card-text {
+  font-size: 1em;
+  color: #555;
+}
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/*
+  /////////////////////////////////////////
+        CSS POUR LE DROP MENU LOGIN
+  /////////////////////////////////////////
+ */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content form {
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+/* CSS pour les transitions */
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.hidden {
+  display: none;
+}
+
+/* CSS pour l'animation des points  */
+.dot {
+  animation: 2s enter;
+  background-color: rgb(50, 139, 193);
+  border-radius: 100%;
+  height: 50px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  pointer-events: none;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translate(-100%, -100%);
+  }
+
+  50% {
+    opacity: .5;
+  }
 }
