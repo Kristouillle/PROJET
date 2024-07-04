@@ -1,12 +1,15 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var axios = require('axios')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var port = 3085
 var app = express();
 
 // view engine setup
@@ -36,6 +39,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  console.log(`http://localhost:${port}/`)
 });
 
 module.exports = app;
