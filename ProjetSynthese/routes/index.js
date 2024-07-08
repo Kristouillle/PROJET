@@ -20,7 +20,16 @@ router.post('/login', async function(req, res, next) {
     const response = await axios.post(`${api_url}/route/login`, {
       email,
       password,
+    }, {
+      withCredentials: true 
     });
+
+    const cookies = response.headers['set-cookie'];
+    if (cookies) {
+      cookies.forEach(cookie => {
+        res.append('Set-Cookie', cookie);
+      });
+    }
 
     const roleClaim = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
     const nameClaim = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
@@ -54,6 +63,10 @@ router.post('/login', async function(req, res, next) {
     console.error('An error occurred during login:', error);
     res.status(500).send('An error occurred during login.');
   }
+});
+
+router.post('/register', async function(req,res,next){
+
 });
 
 module.exports = router;
