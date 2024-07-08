@@ -2,8 +2,11 @@
 <html>
   <head>
     <title>Projet Synthese</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="/javascripts/scripts.js"></script>
+
   </head>
   <body>
   <header>
@@ -39,21 +42,29 @@
   </header>
 
   <div class="section" id="heroLanding">
-      <h1 class="heroText">Votre<br>relaxation<br>commence ici</h1>
-      <form class="inline-form">
-        <select name="services" id="services">    
-          <option value="1">service 1</option>
-          <option value="2">service 2</option>
-          <option value="3">service 3</option>
-          <option value="4">service 4</option>
-        </select>
-        <input type="date" name="date" placeholder="Today!">
-        <input type="text" name="heure" placeholder="Choisir l'heure">
-        <input type="button" name="reserver" placeholder="Réserver" value="Réserver" class="cta">
-      </form>
-    </div>
+    <h1 class="heroText">Votre<br>relaxation<br>commence ici</h1>
+    <form class="inline-form">
+      <div class="service-picker">
+        <button id="selectedServiceButton" class="service-button" type="button">Choisir le service</button>
+        <div class="service-dropdown" id="serviceDropdown">
+          <ul id="serviceList">
+          </ul>
+        </div>
+      </div>
+      <input id="datePicker" type="text" name="date" placeholder="Today!">
+      <div class="time-picker">
+        <button id="selectedTimeButton" class="time-button" type="button">Choisir l'heure</button>
+        <div class="time-dropdown" id="timeDropdown">
+          <ul id="timeList"></ul>
+        </div>
+      </div>
+      <input type="button" name="reserver" value="Réserver" class="cta">
+    </form>
+  </div>
 
-    <div class="content section hidden" id="sec2">
+
+
+  <div class="content section hidden" id="sec2">
       <div class="card-container">
         <div class="card">
           <img src="https://via.placeholder.com/300x200" alt="Card Image 1">
@@ -90,7 +101,10 @@
       <h2>Contenu de la section 5</h2>
     </div>
 
-    <div class="dot"></div>
-    <script src="/javascripts/scripts.js"></script>
+    <div class="dot"></div> <!-- Pour les points qui suivent la souris  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>   <!-- Pour le calendirer   -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script> <!-- Pour la localisation du calendier (francais)  -->
+    <script src="/javascripts/scripts.js"></script> <!-- Pour le reste  -->
   </body>
 </html>
