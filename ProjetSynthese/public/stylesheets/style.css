@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap");
-
-
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 
 /*
   /////////////////////////////////////////
@@ -11,7 +7,6 @@ body {
  */
 
 html, body {
-
   height: 100%;
   margin: 0;
   padding: 0;
@@ -69,7 +64,6 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
-
 /*
   /////////////////////////////////////////
         CSS POUR LA SECTION 1
@@ -77,7 +71,6 @@ body {
  */
 
 #heroLanding{
-
   height: 100vh;
   background-image: url("../images/massageHD.jpg");
 }
@@ -89,7 +82,7 @@ body {
   padding-left: 5%;
   text-align: left;
   font-size: 85px;
-  color: #55b8e6;
+  color: #55B8E6;
   line-height: 1.2;
 }
 
@@ -125,14 +118,12 @@ body {
 }
 
 .cta {
-  background-color: #00b7ff;
+  background-color: #00B7FF;
   color: white;
   font-weight: bolder;
 }
 
-#sec2,
-#sec3,
-#sec4 {
+#sec2, #sec3, #sec4 {
   background-color: white;
   height: 100vh;
 }
@@ -140,7 +131,6 @@ body {
 .hidden {
   opacity: 0;
 }
-
 
 /*
        /////////////////////////////////////////
@@ -300,7 +290,6 @@ body {
   cursor: not-allowed;
 }
 
-
 /*
   /////////////////////////////////////////
         CSS POUR LA SECTION 2
@@ -317,7 +306,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 30%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.01);
   overflow: visible;
   position: relative;
   padding: 16px 24px;
@@ -333,13 +322,13 @@ body {
   transform: scale(0.8) translateZ(0);
   filter: blur(25px);
   background: linear-gradient(
-    to left,
-    #55b8e6,
-    #328bc1,
-    #0a6ca4,
-    #0a6ca4,
-    #328bc1,
-    #55b8e6
+          to left,
+          #55B8E6,
+          #328BC1,
+          #0A6CA4,
+          #0A6CA4,
+          #328BC1,
+          #55B8E6
   );
   background-size: 200% 200%;
   animation: animateGlow 1.25s linear infinite;
@@ -378,6 +367,8 @@ body {
   }
 }
 
+
+
 /*
   /////////////////////////////////////////
         CSS POUR LE DROP MENU LOGIN
@@ -393,7 +384,7 @@ body {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -405,6 +396,9 @@ body {
   display: block;
 }
 
+
+
+
 /* CSS pour les transitions */
 .fade-in {
   animation: fadeIn 1s forwards;
@@ -415,21 +409,13 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 .hidden {
@@ -458,39 +444,6 @@ body {
   }
 
   50% {
-    opacity: 0.5;
+    opacity: .5;
   }
-}
-/*
-  /////////////////////////////////////////
-        CSS POUR LA SECTION A PROPOS
-  /////////////////////////////////////////
- */
-.content {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-.content img {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  display: block;
-  margin: 0 auto 20px auto;
-  border-radius: 50%;
-}
-h2 {
-  color: #333;
-  font-size: 1.2em;
-  line-height: 1.8;
-}
-.hidden {
-  display: none;
-}
-.highlight {
-  color: #2a9d8f;
-  font-weight: bold;
 }
