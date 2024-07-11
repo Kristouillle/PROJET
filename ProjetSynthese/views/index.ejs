@@ -2,44 +2,97 @@
 <html>
   <head>
     <title>Projet Synthese</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
     <script src="/javascripts/scripts.js"></script>
 
   </head>
   <body>
-  <header>
-    <div class="header">
-      <a href="#"><img src="/images/logo.svg" alt="logo"></a>
-      <h1><a href="#heroLanding" class="tab-link" data-target="heroLanding">Accueil</a></h1>
-      <h1><a href="#sec2" class="tab-link" data-target="sec2">Services</a></h1>
-      <h1><a href="#sec3" class="tab-link" data-target="sec3">À propos</a></h1>
-      <h1><a href="#sec4" class="tab-link" data-target="sec4">Contact</a></h1>
-      <div class="dropdown">
-        <h1><a class="dropdown-btn">Connexion</a></h1>
-        <div class="dropdown-content">
-          <form id="login-form" method="post" action="/login">
-            <input type="text" name="email" placeholder="Courriel">
-            <input type="password" name="password" placeholder="Mot de passe">
-            <button type="submit">Login</button>
-          </form>
-          <form id="login-form" method="post" action="/login">
-            <hr>
-            <br>
-            <input type="text" name="firstName" placeholder="Prénom">
-            <input type="text" name="lastName" placeholder="Nom de famille">
-            <input type="text" name="username" placeholder="Nom d'utilisateur">
-            <input type="text" name="email" placeholder="Courriel">
-            <input type="password" name="passwordhash" placeholder="Mot de passe">
-            <input type="password" name="confirmPassword" placeholder="Confirmation de mot de passe">
-            <input type="text" name="phoneNumber" placeholder="Numéro de téléphone">
-            <button type="submit">S'inscrire</button>
-          </form>
+    <header>
+      <div class="header">
+        <a href="#"><img src="/images/logo.svg" alt="logo" /></a>
+        <h1>
+          <a href="#heroLanding" class="tab-link" data-target="heroLanding"
+            >Accueil</a
+          >
+        </h1>
+        <h1>
+          <a href="#sec2" class="tab-link" data-target="sec2">Services</a>
+        </h1>
+        <h1>
+          <a href="#sec3" class="tab-link" data-target="sec3">À propos</a>
+        </h1>
+        <h1><a href="#sec4" class="tab-link" data-target="sec4">Contact</a></h1>
+        <div class="dropdown">
+          <h1><a class="dropdown-btn">Connexion</a></h1>
+          <div class="dropdown-content">
+            <form id="login-form" method="post" action="/login">
+              <input type="text" name="email" placeholder="Courriel" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Mot de passe"
+              />
+              <button type="submit">Login</button>
+            </form>
+            <form id="login-form" method="post" action="/login">
+              <hr />
+              <br />
+              <input type="text" name="firstName" placeholder="Prénom" />
+              <input type="text" name="lastName" placeholder="Nom de famille" />
+              <input
+                type="text"
+                name="username"
+                placeholder="Nom d'utilisateur"
+              />
+              <input type="text" name="email" placeholder="Courriel" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Mot de passe"
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirmation de mot de passe"
+              />
+              <input
+                type="text"
+                name="phoneNumber"
+                placeholder="Numéro de téléphone"
+              />
+              <button type="submit">S'inscrire</button>
+            </form>
+          </div>
         </div>
       </div>
+    </header>
+
+
+    <div class="section" id="heroLanding">
+      <h1 class="heroText">Votre<br />relaxation<br />commence ici</h1>
+      <form class="inline-form">
+        <select name="services" id="services">
+          <option value="1">Massothérapie</option>
+          <option value="2">Thérapie Manuelle</option>
+          <option value="3">Méthode Gesret</option>
+        </select>
+        <input type="date" name="date" placeholder="Today!" />
+        <input type="text" name="heure" placeholder="Choisir l'heure" />
+        <input
+          type="button"
+          name="reserver"
+          placeholder="Réserver"
+          value="Réserver"
+          class="cta"
+        />
+      </form>
     </div>
-  </header>
 
   <div class="section" id="heroLanding">
     <h1 class="heroText">Votre<br>relaxation<br>commence ici</h1>
@@ -67,31 +120,106 @@
   <div class="content section hidden" id="sec2">
       <div class="card-container">
         <div class="card">
-          <img src="https://via.placeholder.com/300x200" alt="Card Image 1">
+          <img
+            src="/images/MassageSuedois_q50_1920x1080.jpg"
+            alt="Card Image 1"
+          />
           <div class="card-content">
-            <h3 class="card-title">Card Title 1</h3>
-            <p class="card-text">This is a description of the first card.</p>
+            <h3 class="card-title">Massothérapie</h3>
+            <p class="card-text">
+              La massothérapie est une pratique thérapeutique qui utilise
+              diverses techniques de massage pour favoriser la relaxation,
+              soulager les tensions musculaires et améliorer le bien-être
+              général. En plus de procurer un moment de détente, la
+              massothérapie offre de nombreux bienfaits pour la santé. Elle aide
+              à réduire le stress et l'anxiété, améliore la circulation
+              sanguine, stimule le système lymphatique et renforce le système
+              immunitaire. De plus, elle peut soulager les douleurs chroniques,
+              améliorer la flexibilité et favoriser une meilleure qualité de
+              sommeil. En intégrant la massothérapie dans votre routine, vous
+              pouvez améliorer votre qualité de vie de manière significative.
+              Les techniques utilisées à la clinique SD sont le massage Suédois
+              ( à l'huile) combiné avec des techniques de kinésithérapie pour
+              permettre une plus grande mobilité articulaire.
+            </p>
           </div>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/300x200" alt="Card Image 2">
+          <img src="/images/therpManu.jpg" alt="Card Image 2" />
           <div class="card-content">
-            <h3 class="card-title">Card Title 2</h3>
-            <p class="card-text">This is a description of the second card.</p>
+            <h3 class="card-title">Thérapie Manuelle et posturologie</h3>
+            <p class="card-text">
+              A la clinique de thérapie SD, on offre également un service
+              d'alignement posturale. Par des techniques novatrices, l'objectif
+              de ces séances est de permettre l'alignement de la structure par
+              la correction de toutes les entrées sensorielles du corps. Ces
+              entrées sensorielles permettent à l'organisme de se percevoir dans
+              l'environnement de manière la plus stable, il est donc
+              indispensable que ces capteurs soient le plus équilibrés possible.
+              Il s'agit donc d'ajuster l'équilibre des capteurs de
+              proprioception podale, de l'oreille interne ainsi que des yeux.
+              Par des exercices simples de rééducation et réguliers, le client
+              retrouvera un équilibre naturel sans pertubation neurologique.
+            </p>
           </div>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/300x200" alt="Card Image 3">
+          <img src="/images/methode_Gesret.jpg_760_760_2" alt="Card Image 3" />
           <div class="card-content">
-            <h3 class="card-title">Card Title 3</h3>
-            <p class="card-text">This is a description of the third card.</p>
+            <h3 class="card-title">Méthode Gesret</h3>
+            <p class="card-text">
+              Selon Gesret, la cause de l’asthme ne peut être une inflammation
+              permanente des tissus pulmonaires car une inflammation est une
+              réponse défensive et non une cause en elle même. L’asthme serait
+              plutôt une réaction normale de l’organisme en réponse à des
+              informations anormales supposées provenir du plexus pulmonaire.
+              Pour traiter un asthme, cela ne nécessite en moyenne que quatre
+              séances de travail d'une heure. Il s'agit de redonner à un
+              individu son équilibre et sa conformité originelle, redonner un
+              bon équilibre du bassin redonner un axe corporel correctet
+              redonner une mobilité thoracique parfaite afin que la fonction
+              respiratoire le soit également.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="content section hidden" id="sec3">
-      <h2>Contenu de la section 3 Ajout stef</h2>
+      <img src="/images/photoStef.jpeg" alt="Photo de Stéphane Dreux" />
+      <h2>
+        Votre thérapeute, <span class="highlight">Stéphane Dreux</span> est
+        massothérapeute professionnel agréé F.Q.M et thérapeute manuel depuis
+        plus de 20 ans. Anciennement Électrotechnicien et technicien de
+        maintenance, il s’est toujours passionné pour le fonctionnement du corps
+        humain, d’une part, suite à de nombreux problèmes de santé et ensuite
+        car toutes ces difficultés lui faisaient penser plus à des pannes qu'à
+        des pathologies. Fatigué par tous ces troubles de santé et désirant en
+        savoir plus sur le corps humain, il décide de suivre un cours en
+        massothérapie d’abord en Shiatsu (thérapie énergétique) puis en Suédois
+        (Massage musculo-squelettique à l’huile). Souffrant d’asthme sévère et
+        d’allergies quasi-permanentes depuis sa jeune enfance, il découvre alors
+        sur internet la méthode de <span class="highlight">M Gesret</span>.
+        Malgré un scepticisme qui lui fit attendre plusieurs années avant de
+        recevoir un traitement, les résultats furent éclatants. Après seulement
+        deux séances, il avait retrouvé toutes ses capacités respiratoires et
+        n’a plus eu de problème respiratoire ni d’allergie depuis 2003. La
+        découverte de cette nouvelle approche novatrice fut le déclic pour lui
+        qui œuvre maintenant en clinique privée depuis 1999 à promouvoir cette
+        approche thérapeutique. Intégrant le massage à la thérapie manuelle, il
+        développe une approche holistique permettant à la personne-cliente
+        désirant recouvrer la santé d’avoir tous les outils nécessaires pour
+        retrouver une santé corporelle qui lui est propre d’abord par un
+        alignement structurel global et UNIQUE grâce au travail de la cage
+        thoracique et ensuite par une prise en charge de son hygiène posturale
+        et de vie avec les exercices de renforcement. A cet effet, toujours dans
+        le but de proposer encore plus d’outils à la prise en charge de ses
+        clients, <span class="highlight">Stéphane Dreux</span> est Spécialiste
+        en entraînement personnel certifié Can-Fit-Pro. Cela lui permet de
+        finaliser son approche avec des entraînements personnalisés pour chacun
+        de ses clients. De plus, il est formé également en posturologie et en
+        Neurothérapie, afin d'offrir un service complet et efficace.
+      </h2>
     </div>
     <div class="content section hidden" id="sec4">
       <h2>Contenu de la section 4</h2>
