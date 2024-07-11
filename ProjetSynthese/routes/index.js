@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+
 router.post('/login', async function(req, res, next) {
 
   const { email, password } = req.body;
