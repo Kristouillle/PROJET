@@ -79,6 +79,27 @@ router.post('/login', async function(req, res, next) {
   }
 });
 
+/***Register***/
+router.post('/register', async function(req, res, next){
+  try {
+    const {firstName, lastName, username , email ,passwordHash, phoneNumber} = req.body;
+    console.log({firstName, lastName, username , email ,passwordHash, phoneNumber})
+
+    const response = await axios.post(`${api_url}/user/register`, {
+      firstName,
+      lastName,
+      username,
+      email,
+      passwordHash,
+      phoneNumber
+    }); 
+
+    res.redirect('/moke')
+  } catch (error) {
+    console.error('Logout error:', error);
+    next(error); 
+  }
+})
 
 /***LOG OUT***/
 /// Summary
@@ -101,6 +122,7 @@ router.post('/logout', async function (req, res, next) {
     res.clearCookie('xxx-Oauth');
     res.clearCookie('xxx-OauthR');
     res.redirect('/moke');
+    
   } catch (error) {
     console.error('Logout error:', error);
     next(error); 

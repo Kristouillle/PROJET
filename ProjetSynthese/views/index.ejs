@@ -33,21 +33,23 @@
               />
               <button type="submit">Login</button>
             </form>
-            <form id="login-form" method="post" action="/login">
+            <form id="login-form-2" method="post" action="/register">
               <hr />
               <br />
-              <input type="text" name="firstName" placeholder="Prénom" />
-              <input type="text" name="lastName" placeholder="Nom de famille" />
+              <input type="text" name="firstName" placeholder="Prénom" required />
+              <input type="text" name="lastName" placeholder="Nom de famille" required />
               <input
                 type="text"
                 name="username"
                 placeholder="Nom d'utilisateur"
+                required
               />
               <input type="text" name="email" placeholder="Courriel" />
               <input
                 type="password"
-                name="password"
+                name="passwordHash"
                 placeholder="Mot de passe"
+                required
               />
               <input
                 type="password"
@@ -58,6 +60,7 @@
                 type="text"
                 name="phoneNumber"
                 placeholder="Numéro de téléphone"
+                required
               />
               <button type="submit">S'inscrire</button>
             </form>
