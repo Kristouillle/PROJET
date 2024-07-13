@@ -6,6 +6,11 @@ var axios = require('axios')
 var api_url = process.env.API_URL
 
 
+/***Moke for featureA1 delete when the project is over***/
+router.get('/moke', function(req,res,next){
+  res.render('moke')
+})
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -13,14 +18,22 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/login', async function(req, res, next) {
-
   const { email, password } = req.body;
 
   try {
     const response = await axios.post(`${api_url}/route/login`, {
       email,
-      password,
+      password
+    }, {
+      withCredentials: true 
     });
+
+    const cookies = response.headers['set-cookie'];
+    if (cookies && cookies.length > 0) {
+      cookies.forEach(cookie => {
+        res.append('Set-Cookie', cookie);
+      });
+    }
 
     const roleClaim = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
     const nameClaim = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
@@ -33,6 +46,14 @@ router.post('/login', async function(req, res, next) {
     console.log('Role:', role);
     console.log('UserName:', name);
     console.log('Decoded Token:', decodedToken);
+
+    const cookieOptions = {
+      httpOnly: true,
+      secure: false, // switch to true when we have a domain and a certificate
+      sameSite: 'Strict',
+      maxAge: 45 * 1000 
+    }
+
     /*
     // Redirection based on role
     if (role === 'admin') {
@@ -49,11 +70,42 @@ router.post('/login', async function(req, res, next) {
       res.status(400).send('Unknown role, handle accordingly.');
     }
     */
-   res.redirect('/')
+
+    res.append('Set-Cookie', `xxx-Oauth=${token}; HttpOnly; Secure; SameSite=Strict; Max-Age=${cookieOptions.maxAge / 1000}`);
+    res.redirect('/');
   } catch (error) {
     console.error('An error occurred during login:', error);
     res.status(500).send('An error occurred during login.');
   }
 });
+
+
+/***LOG OUT***/
+/// Summary
+/// The main purpose of this function is to 
+/// delete all tokens and cookie from the API and the webApp.
+router.post('/logout', async function (req, res, next) {
+  try {
+    // Retrieve cookie value from the request
+    const token = req.cookies['xxx-Oauth'];
+    
+    if (token) {
+      await axios.post(`${api_url}/route/logout`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    }
+
+    // Redirect the user to the '/moke' route until the real end point is finish
+    res.clearCookie('xxx-Oauth');
+    res.clearCookie('xxx-OauthR');
+    res.redirect('/moke');
+  } catch (error) {
+    console.error('Logout error:', error);
+    next(error); 
+  }
+});
+
 
 module.exports = router;
