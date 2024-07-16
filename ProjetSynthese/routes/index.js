@@ -130,4 +130,23 @@ router.post('/logout', async function (req, res, next) {
 });
 
 
+router.post('/admin/users', async function (req, res, next) {
+  try { 
+    const token = req.cookies['xxx-Oauth'];
+    var response = null;
+    if (token) {
+       response = await axios.post(`${api_url}/user/GetUsers`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    }
+    
+    res.render('moke2', { users: response.data.users });
+  } catch (error) {
+    console.error(error); 
+    next(error);
+  }
+});
+
 module.exports = router;

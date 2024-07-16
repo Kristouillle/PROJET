@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Email Confirmed</th>
+            <th>Phone Number</th>
+            <hr>
+          </tr>
+        </thead>
+        <tbody>
+            <% let i = 1; users.forEach((user) => { %>  
+              <tr>
+                <td><%= i %></td>
+                <td><%= user.firstName %></td>
+                <td><%= user.lastName %></td>
+                <td><%= user.userName %></td>
+                <td><%= user.email %></td>
+                <td><%= user.emailConfirmed %></td>
+                <td><%= user.phoneNumber %></td>
+              </tr> 
+              <% i++; %>
+            <% }) %>
+        </tbody>
+      </table>
+<hr>
+<form action="/">
+    <button type="submit">Return Home</button>
+</form>
+</body>
+</html>
