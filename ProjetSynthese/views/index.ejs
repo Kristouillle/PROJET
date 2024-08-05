@@ -2,9 +2,13 @@
 <html>
   <head>
     <title>Projet Synthese</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="/javascripts/scripts.js"></script>
-    <script src="/javascripts/scriptsSec4.js"></script>
   </head>
   <body>
     <header>
@@ -62,6 +66,12 @@
               />
               <button type="submit">S'inscrire</button>
             </form>
+            <form action="/admin/settings">
+              <button type="submit">Admin settings</button>
+            </form>
+            <form action="/user/settings">
+              <button type="submit">user settings</button>
+            </form>
           </div>
         </div>
       </div>
@@ -70,20 +80,28 @@
     <div class="section" id="heroLanding">
       <h1 class="heroText">Votre<br />relaxation<br />commence ici</h1>
       <form class="inline-form">
-        <select name="services" id="services">
-          <option value="1">Massothérapie</option>
-          <option value="2">Thérapie Manuelle</option>
-          <option value="3">Méthode Gesret</option>
-        </select>
-        <input type="date" name="date" placeholder="Today!" />
-        <input type="text" name="heure" placeholder="Choisir l'heure" />
-        <input
-          type="button"
-          name="reserver"
-          placeholder="Réserver"
-          value="Réserver"
-          class="cta"
-        />
+        <div class="service-picker">
+          <button
+            id="selectedServiceButton"
+            class="service-button"
+            type="button"
+          >
+            Choisir le service
+          </button>
+          <div class="service-dropdown" id="serviceDropdown">
+            <ul id="serviceList"></ul>
+          </div>
+        </div>
+        <input id="datePicker" type="text" name="date" placeholder="Today!" />
+        <div class="time-picker">
+          <button id="selectedTimeButton" class="time-button" type="button">
+            Choisir l'heure
+          </button>
+          <div class="time-dropdown" id="timeDropdown">
+            <ul id="timeList"></ul>
+          </div>
+        </div>
+        <input type="button" name="reserver" value="Réserver" class="cta" />
       </form>
     </div>
 
@@ -162,7 +180,7 @@
         massothérapeute professionnel agréé F.Q.M et thérapeute manuel depuis
         plus de 20 ans.
       </h2>
-      <div class="section">
+      <div>
         <h3>Parcours et Formation</h3>
         <p>
           Anciennement Électrotechnicien et technicien de maintenance, il s’est
@@ -175,7 +193,8 @@
           Suédois (Massage musculo-squelettique à l’huile).
         </p>
       </div>
-      <div class="section">
+      <br />
+      <div>
         <h3>Méthode Gesret</h3>
         <p>
           Souffrant d’asthme sévère et d’allergies quasi-permanentes depuis sa
@@ -187,7 +206,7 @@
           respiratoire ni d’allergie depuis 2003.
         </p>
       </div>
-      <div class="section">
+      <div>
         <h3>Approche Thérapeutique</h3>
         <p>
           La découverte de cette nouvelle approche novatrice fut le déclic pour
@@ -201,7 +220,7 @@
           hygiène posturale et de vie avec les exercices de renforcement.
         </p>
       </div>
-      <div class="section">
+      <div>
         <h3>Formations et Certifications</h3>
         <p>
           A cet effet, toujours dans le but de proposer encore plus d’outils à
@@ -266,7 +285,13 @@
     </div>
 
     <div class="dot"></div>
+    <!-- Pour les points qui suivent la souris  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Pour le calendirer   -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <!-- Pour la localisation du calendier (francais)  -->
     <script src="/javascripts/scripts.js"></script>
-    <script src="/javascripts/scriptsSec4.js"></script>
+    <!-- Pour le reste  -->
   </body>
 </html>
