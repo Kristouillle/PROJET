@@ -9,7 +9,7 @@ var axios = require('axios')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var port = 3085;
+var port = process.env.PORT;
 var app = express();
 
 // view engine setup
