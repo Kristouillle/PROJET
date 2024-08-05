@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Email Confirmed</th>
+            <th>Phone Number</th>
+            <td></td>
+            <hr>
+          </tr>
+        </thead>
+        <tbody>
+            <% let i = 1; users.forEach((user) => { %>  
+              <tr>
+                <td><%= i %></td>
+                <td><%= user.firstName %></td>
+                <td><%= user.lastName %></td>
+                <td><%= user.userName %></td>
+                <td><%= user.email %></td>
+                <td><%= user.emailConfirmed %></td>
+                <td><%= user.phoneNumber %></td>
+                <td>
+                  <form action="/admin/delete_client" method="post">
+                    <input type="hidden" name="username" id="username" value="<%= user.userName %>">
+                    <button type="submit">Delete client</button>
+                  </form>
+              </td>
+              </tr> 
+              <% i++; %>
+            <% }) %>
+        </tbody>
+      </table>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Nom du client</td>
+      <td>Nom du Therapeute</td>
+      <td>Téléphone</td>
+      <td>Email</td>
+      <td>Journée du rendez-vous</td>
+      <td>Heure du rendez-vous</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% let j = 1; appointments.forEach(appointment => { 
+      const [date, time] = appointment.appointmentTime.split('T');
+      const formattedTime = time.split('Z')[0];
+    %>
+      <tr>
+        <td><%= j %></td>
+        <td><%= appointment.clientName %></td>
+        <td><%= appointment.therapistName %></td>
+        <td><%= appointment.phoneNumber %></td>
+        <td><%= appointment.email %></td>
+        <td><%= date %> </td>
+        <td><%= formattedTime %></td>
+        <td>
+          <form action="/admin/cancel_appointment" method="post">
+            <input type="hidden" name="appointmentId" id="appointmentId" value="<%= appointment.id %>">
+            <button type="submit">Cancel appointment</button>
+        </form>
+      </tr>
+      <% j++ }) %>
+  </tbody>
+</table>
+<hr>
+<br>
+<table>
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Nom du Therapeute</td>
+      <td>Journée</td>
+      <td>Heure</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% let k = 1; availabilities.forEach(available => { 
+      const [date, time] = available.availableDay.split('T');%>
+      <tr>
+        <td><%= k %></td>
+        <td><%= available.therapistName %></td>
+        <td><%= date %></td>
+        <td><%= available.availableTime %></td>
+        <td><%= available.id %></td>
+        <td>        
+          <form action="/admin/delete_availability" method="post">
+          <input type="hidden" id="availableId" name="availableId" value="<%= available.id %>">
+          <button type="submit">Delete Disponibilité</button>
+        </form>
+      </td>
+      </tr>
+      <% k++ }) %>
+  </tbody>
+</table>
+<hr>
+
+<br>
+<table>
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Nom de la therapie</td>
+      <td>Description</td>
+      <td>Prix</td>
+      <td>id</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% let l = 1; therapies.forEach(therapy => { %>
+      
+      <tr>
+        <td><%= l %></td>
+        <td><%= therapy.name %></td>
+        <td><%= therapy.description %></td>
+        <td><%= therapy.price %></td>
+        <td><%= therapy.id %></td>
+        <td>
+          <form action="/admin/delete_therapy" method="post">
+            <input type="hidden" id="therapyId" name="therapyId" value="<%= therapy.id %>">
+            <button type="submit">Delete therapy</button>
+          </form>
+        </td>
+      </tr>
+      <% l++ }) %>
+  </tbody>
+</table>
+<hr>
+<br>
+<h1>Disponibilité</h1>
+<form action="/admin/add_availablity" method="post">
+  <p>This Id field will be changed for a hardcoded id and a random string generator on the API side</p>
+  <label for="id">Id</label>
+  <input type="text" name="id" id="id" placeholder="Id">
+  
+  <label for="therapistName">Le nom du therapeute</label>
+  <input type="text" name="therapistName" id="therapistName" placeholder="Le nom du therapeute">
+  
+  <label for="availableDay">Journée de disponibilité</label>
+  <input type="date" name="availableDay" id="availableDay">
+  
+  <label for="availableTime">Heure de disponibilité</label>
+  <input type="time" name="availableTime" id="availableTime">
+  
+  <button type="submit">Ajouter disponibilité</button>
+</form>
+<form action="/admin/edit_availability" method="post">
+  <p>This Id field will be changed for a hidden field id</p>
+  <label for="id2">Id</label>
+  <input type="text" name="id2" id="id2" placeholder="Id">
+  
+  <label for="therapistName2">Le nom du therapeute</label>
+  <input type="text" name="therapistName2" id="therapistName2" placeholder="Le nom du therapeute">
+  
+  <label for="availableDay2">Journée de disponibilité</label>
+  <input type="date" name="availableDay2" id="availableDay2">
+  
+  <label for="availableTime2">Heure de disponibilité</label>
+  <input type="time" name="availableTime2" id="availableTime2">
+  
+  <button type="submit">Edit disponibilité</button>
+</form>
+<br>
+<hr>
+<br>
+<h1>Therapie</h1>
+<form action="/admin/add_therapy" method="post">
+  <p>This Id field will be changed for a hardcoded id and a random string generator on the API side</p>
+  <label for="id">Id</label>
+  <input type="text" name="id" id="id" placeholder="Id">
+  
+  <label for="name">nom de la therapie</label>
+  <input type="text" name="name" id="name" placeholder="nom de la therapie">
+  
+  <label for="description">Description</label>
+  <input type="text" name="description" id="description">
+  
+  <label for="price">Prix</label>
+  <input type="number" name="price" id="price">
+  
+  <button type="submit">Ajouter therapie</button>
+</form>
+
+<form action="/admin/edit_therapy" method="post">
+  <p>This Id field will be changed for a hidden field id</p>
+  <label for="id">Id</label>
+  <input type="text" name="id" id="id" placeholder="Id">
+  
+  <label for="name">nom de la therapie</label>
+  <input type="text" name="name" id="name" placeholder="nom de la therapie">
+  
+  <label for="description">Description</label>
+  <input type="text" name="description" id="description">
+  
+  <label for="price">Prix</label>
+  <input type="number" name="price" id="price">
+  
+  <button type="submit">Update therapie</button>
+</form>
+<br>
+<hr>
+<h1>Recherches</h1>
+<form action="/admin/findAppointmentByName" method="post">
+  <label>Recherche RDV par username du client</label>
+  <input type="text" name="appointmentName" id="appointmentName">
+  <button type="submit">Recherche</button>
+</form>
+<br>
+<form action="/admin/FindAppointmentByDate" method="post">
+  <label>Recherche Rdv par date</label>
+  <input type="date" name="appointmentDate" id="appointmentDate">
+  <button type="submit">Recherche</button>
+</form>
+<br>
+<form action="/admin/FindTherapyByName" method="post">
+  <label>Recherche therapie</label>
+  <input type="text" name="therapyName" id="therapyName">
+  <button type="submit">Recherche</button>
+</form>
+<br>
+<form action="/admin/FindAvailabilityByTherapistName" method="post">
+  <label>Recherche disponibilité</label>
+  <input type="text" name="therapistName" id="therapistName">
+  <button type="submit">Recherche</button>
+</form>
+<hr>
+<form action="/" method="get">
+    <button type="submit">Return Home</button>
+</form>
+</body>
+</html>

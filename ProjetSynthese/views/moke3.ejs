@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER</title>
+</head>
+<body>
+ 
+    <br>
+    <form action="/">
+        <button type="submit">Return Home</button>
+    </form>
+    <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Email Confirmed</th>
+            <th>Phone Number</th>
+            <hr>
+          </tr>
+        </thead>
+        <tbody>
+            <% if (user) { %>  
+              <tr>
+                <td><%= user.firstName %></td>
+                <td><%= user.lastName %></td>
+                <td><%= user.userName %></td>
+                <td><%= user.email %></td>
+                <td><%= user.emailConfirmed %></td>
+                <td><%= user.phoneNumber %></td>
+              </tr> 
+              <% } else { %>
+                <tr>
+                  <td colspan="6">No user found.</td>
+                </tr>
+              <% } %>
+        </tbody>
+      </table>
+      <hr>
+      <br>
+      <br>
+    <form action="/user/Edit" method="post">
+        <input type="hidden" value="user.id">
+        <input type="hidden" value="user.userName">
+        <input type="hidden" value="user.email">
+        <label for="firstName">Prénom</label>
+        <input type="text" name="firstName" value="<%= user.firstName %>">
+        <label for="lastName">Nom</label>
+        <input type="text" name="lastName" value="<%= user.lastName %>">
+        <label for="phoneNumber">Téléphone</label>
+        <input type="text" name="phoneNumber" value="<%= user.phoneNumber %>">
+        <br>
+        <button type="submit">Send updated data</button>
+    </form>
+    <br>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Nom du Thérapeute</td>
+          <td>Journée du rendez-vous</td>
+          <td>Heure du rendez-vous</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% let i = 1; appointments.forEach(appointment => { 
+          const [date, time] = appointment.appointmentTime.split('T');
+          const formattedTime = time.split('Z')[0];
+        %>
+          <tr>
+            <td><%= i %></td>
+            <td><%= appointment.therapistName %></td>
+            <td><%= date %> </td>
+            <td><%= formattedTime %></td>
+            <td>
+              <form action="/" method="post">
+                <input type="hidden" name="appointmentId" value="<%= appointment.id %>">
+              <button>Cancel appointment</button>
+            </form>
+          </td>
+          </tr>
+          <% i++ }) %>
+      </tbody>
+    </table>
+</body>
+</html>
