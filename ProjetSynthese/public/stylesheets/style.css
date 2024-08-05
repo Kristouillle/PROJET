@@ -461,12 +461,17 @@ body {
   /////////////////////////////////////////
  */
 #sec3 {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
+  background-color: #f0f8ff;
+  padding: 40px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  min-height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+#sec3 .full-container{
+  width: 70%;
 }
 
 #sec3 img {
@@ -474,16 +479,16 @@ body {
   max-width: 200px;
   height: auto;
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
   border-radius: 40%;
 }
 
 #sec3 h2 {
+  font-size: 24px;
   color: #333;
-  font-size: 1.2em;
-  line-height: 1.8;
-  text-align: justify;
   margin-bottom: 20px;
+
+  text-align: center;
 }
 
 #sec3 .highlight {
@@ -491,19 +496,22 @@ body {
   font-weight: bold;
 }
 
-#sec3 .section {
-  margin-bottom: 40px;
+#sec3 .formation {
+  animation: fadeInLeft 2s ease-in-out;
 }
 
-#sec3 .section p {
-  margin-bottom: 20px;
+#sec3 .methodeGesret {
+  animation: fadeInRight 2s ease-in-out;
 }
 
-#sec3 .section h3 {
-  font-size: 1.4em;
-  color: #444;
-  margin-bottom: 10px;
+#sec3 .approche {
+  animation: fadeInLeft 2s ease-in-out;
 }
+
+#sec3 .certifications {
+  animation: fadeInRight 2s ease-in-out;
+}
+
 
 /*
   /////////////////////////////////////////
@@ -534,6 +542,7 @@ body {
   text-align: center;
 }
 
+#sec3 .grid-container,
 #sec4 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -541,6 +550,7 @@ body {
   justify-items: center;
 }
 
+#sec3 .grid-item,
 #sec4 .grid-item {
   background-color: #ffffff;
   padding: 20px;

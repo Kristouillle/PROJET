@@ -164,7 +164,7 @@ document.addEventListener('mousemove', function(event) {
     }
 });
 
-function addDot() {
+function addDot() {
     var dotClone = dot.cloneNode();
 
     dotClone.style.backgroundColor = randomColor();
