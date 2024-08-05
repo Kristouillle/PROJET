@@ -57,6 +57,20 @@
         <button type="submit">Send updated data</button>
     </form>
     <br>
+    <br>
+    <br>
+    <hr>
+    <form action="/user/EditEmail" method="post">
+      <input type="hidden" name="id" value="<%= user.id %>">
+      <input type="hidden" name="username" value="<%= user.userName %>">
+      <input type="hidden" name="firstName" value="<%= user.firstName %>">
+      <input type="hidden" name="lastName" value="<%= user.lastName %>">
+      <input type="hidden" name="phoneNumber" value="<%= user.phoneNumber %>">
+      <label for="email">Email</label>
+      <input type="text" name="email" value="<%= user.email %>">
+      <br>
+      <button type="submit">Send updated email</button>
+  </form>
     <hr>
     <table>
       <thead>

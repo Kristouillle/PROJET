@@ -54,6 +54,19 @@ body {
   color: #000;
 }
 
+.header h2 {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  margin: 0;
+  text-align: end;
+  flex: 1;
+}
+
+.header h2 a {
+  text-decoration: none;
+  color: #000;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -64,7 +77,6 @@ body {
   background-position: center;
   transition: opacity 1s ease-in-out;
 }
-
 
 /*
   /////////////////////////////////////////
@@ -673,3 +685,6 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+

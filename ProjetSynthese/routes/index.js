@@ -110,7 +110,7 @@ router.post('/logout', async (req, res, next) => {
   }
 });
 
-/******/
+/***Render the admin settings page***/
 router.get('/admin/settings', async (req, res, next) => {
   try { 
     const token = req.cookies['xxx-Oauth'];
@@ -148,7 +148,7 @@ router.get('/admin/settings', async (req, res, next) => {
   }
 });
 
-/******/
+/***Render the user settings page***/
 router.get('/user/settings', async (req,res,next) => {
   try {
     const token = req.cookies['xxx-Oauth'];
@@ -194,7 +194,6 @@ router.post('/user/Edit', async (req,res,next) => {
   }
 })
 
-
 /***Edit Availability***/
 router.post('/admin/edit_availability',async (req,res,next) =>{
   try {
@@ -238,8 +237,6 @@ router.post('/admin/edit_therapy', async (req,res,next) => {
   }
 })
 
-//Stef
-//add
 router.post('/admin/add_availablity', async function(req,res,next){
   try{
     const token = req.cookies['xxx-Oauth']
@@ -286,7 +283,6 @@ router.post('/admin/add_therapy', async function(req,res,next){
   }
 })
 
-//cancel/delete
 router.post('/admin/cancel_appointment', async function(req,res,next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -350,6 +346,7 @@ router.post('/admin/delete_availability', async function (req,res ,next){
   }
 })
 
+/***Delete client on admin side***/
 router.post('/admin/delete_client', async function(req, res, next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -369,8 +366,7 @@ router.post('/admin/delete_client', async function(req, res, next){
   }
 })
 
-//Christophe
-//Recherche
+/***Find appointment by name***/
 router.post('/admin/findAppointmentByName', async function(req,res,next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -391,6 +387,7 @@ router.post('/admin/findAppointmentByName', async function(req,res,next){
   }
 })
 
+/***Find appointment by date***/
 router.post('/admin/findAppointmentByDate', async function(req,res,next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -410,6 +407,7 @@ router.post('/admin/findAppointmentByDate', async function(req,res,next){
   }
 })
 
+/***Find Therapy by name***/
 router.post('/admin/FindTherapyByName', async function(req,res, next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -430,6 +428,7 @@ router.post('/admin/FindTherapyByName', async function(req,res, next){
   }
 })
 
+/***Find availability by therapist name***/
 router.post('/admin/FindAvailabilityByTherapistName', async function(req,res, next){
   try {
     const token = req.cookies['xxx-Oauth']
@@ -448,6 +447,44 @@ router.post('/admin/FindAvailabilityByTherapistName', async function(req,res, ne
     console.log(error)
     next(error)
   }
+})
+
+/***Update User Email***/
+router.post('/user/EditEmail', async function(req, res, next){
+  try {
+    const token = req.cookies['xxx-Oauth']
+    const user = req.body
+    console.log(user)
+    if(token){
+      const response = await axios.post(`${api_url}/user/UpdateEmail`, user , {
+        headers:{
+          'Authorization':`Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+    res.redirect('/')
+  }catch(error){
+    console.log(error)
+    next(error)
+  }
+})
+
+/***Confirm Email***/
+router.get('/confirm_email', async function(req,res,next){
+  try {
+    const userId = req.query.id
+    const code = req.query.code
+    if(userId && code){
+      const response = await axios.post(`${api_url}/user/ConfirmUserEmail`,{UserId: userId, Code: code})
+    }
+
+    res.render('confirmEmail')
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+ 
 })
 
 module.exports = router;
