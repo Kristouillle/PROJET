@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap");
 
+/*
+  /////////////////////////////////////////
+        CSS GÉNÉRIQUE
+  /////////////////////////////////////////
+ */
+
 html,
 body {
   height: 100%;
@@ -59,6 +65,13 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
+
+/*
+  /////////////////////////////////////////
+        CSS POUR LA SECTION 1
+  /////////////////////////////////////////
+ */
+
 #heroLanding {
   height: 100vh;
   background-image: url("../images/massageHD.jpg");
@@ -86,7 +99,8 @@ body {
 }
 
 .inline-form input,
-.inline-form select {
+.inline-form select,
+.inline-form button {
   flex: 1;
   padding: 10px;
   padding-top: 15px;
@@ -97,6 +111,7 @@ body {
   border: none;
   text-align: left;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 5px 2px;
+  width: 100%;
 }
 
 .inline-form input:focus,
@@ -120,6 +135,164 @@ body {
 .hidden {
   opacity: 0;
 }
+/*
+       /////////////////////////////////////////
+             CSS POUR LE DROP DOWN DES SERVICES
+       /////////////////////////////////////////
+ */
+
+
+
+
+/*
+       /////////////////////////////////////////
+             CSS POUR LE CALENDRIER
+       /////////////////////////////////////////
+ */
+.flatpickr-calendar {
+  background: #f8f9fa;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000;
+  position: absolute;
+  width: inherit;
+  margin-top: -25px;
+}
+.flatpickr-calendar.open {
+  display: block !important;
+}
+.flatpickr-months {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flatpickr-prev-month, .flatpickr-next-month {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.flatpickr-month {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.flatpickr-weekdays {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.flatpickr-weekday {
+  flex: 1;
+  text-align: center;
+  color: #5a5a5a;
+}
+.flatpickr-days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.flatpickr-day {
+  width: calc(100% / 7);
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 2px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.flatpickr-day.today {
+  background: #007bff;
+  color: white;
+}
+.flatpickr-day.selected {
+  background: #007bff;
+  color: white;
+}
+.flatpickr-day:hover {
+  background: #007bff;
+  color: white;
+}
+.flatpickr-day.disabled {
+  color: #dcdde1;
+  cursor: not-allowed;
+}
+.flatpickr-time {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.flatpickr-time input {
+  border: 1px solid #dcdde1;
+  border-radius: 5px;
+  padding: 5px;
+}
+.flatpickr-time .flatpickr-hour,
+.flatpickr-time .flatpickr-minute,
+.flatpickr-time .flatpickr-second,
+.flatpickr-time .flatpickr-am-pm {
+  width: 48px;
+}
+/*
+       /////////////////////////////////////////
+             CSS POUR LE TIME PICKER
+       /////////////////////////////////////////
+ */
+.time-picker, .service-picker {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+}
+
+.time-picker input,
+.service-picker input{
+  width: 100%;
+  cursor: pointer;
+}
+
+.time-picker .time-dropdown,
+.service-picker .service-dropdown{
+  position: absolute;
+  background: #f8f9fa;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  display: none;
+  z-index: 1000;
+  width: 100%;
+  margin-top: -104%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.time-picker .time-dropdown.open {
+  display: block;
+}
+
+.time-picker .time-dropdown ul ,
+.service-picker .service-dropdown ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.time-picker .time-dropdown li ,
+.service-picker .service-dropdown li{
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.time-picker .time-dropdown li:hover ,
+.service-picker .service-dropdown li:hover{
+  background: #007bff;
+  color: white;
+}
+
+.time-picker .time-dropdown li.disabled {
+  color: #dcdde1;
+  cursor: not-allowed;
+}
+
+/*
 
 /*
   /////////////////////////////////////////
