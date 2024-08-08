@@ -1,0 +1,105 @@
+/* Style général pour le corps de la page */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+/* Style pour le formulaire */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+/* Style pour les groupes de champs */
+.form-group {
+  margin-bottom: 15px;
+}
+/* Conteneur pour le champ de saisie et l'icône de visibilité */
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+/* Style pour les champs de saisie */
+.input-container input {
+  width: 100%;
+  padding: 8px 35px 8px 8px; /* Ajout de padding pour laisser de la place à l'icône */
+  box-sizing: border-box;
+}
+/* Style pour l'icône de visibilité */
+.input-container .toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+/* Style pour les messages d'erreur */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+/* Style pour le bouton de soumission */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Style pour le bouton de soumission désactivé */
+button:disabled {
+  background-color: #cccccc;
+}
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-container input {
+  width: 100%;
+  padding: 8px 35px 8px 8px; /* Ajout de padding pour laisser de la place à l'icône */
+  box-sizing: border-box;
+}
+.input-container .toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #cccccc;
+}
